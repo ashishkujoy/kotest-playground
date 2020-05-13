@@ -3,10 +3,13 @@ package com.kotest.playground
 import io.kotest.core.config.AbstractProjectConfig
 import io.kotest.core.listeners.Listener
 import io.kotest.core.listeners.TestListener
+import io.kotest.core.spec.IsolationMode
 import io.kotest.core.spec.Spec
 import org.mockito.exceptions.misusing.InjectMocksException
 
 object ProjectConfig : AbstractProjectConfig() {
+    override val isolationMode: IsolationMode? = IsolationMode.InstancePerLeaf
+
     override fun listeners(): List<Listener>  = listOf(ABeforeSpecFailingListener)
 }
 
