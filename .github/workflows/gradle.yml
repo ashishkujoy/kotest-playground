@@ -27,6 +27,7 @@ jobs:
 
     - name: upload-test-reports
       uses: actions/upload-artifact@v2
+      if: always()
       with:
         name: test-report
         path: build/reports/tests/test
